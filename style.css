@@ -1,0 +1,206 @@
+/* Add Venture: support and privacy pages. Felt, cream paper and wood, as in
+   the app. Fonts are served from this site, so the pages load nothing from
+   anyone else. */
+
+@font-face {
+  font-family: "Gloock";
+  src: url("fonts/Gloock-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Commissioner";
+  src: url("fonts/Commissioner-Variable.ttf") format("truetype");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+:root {
+  --felt: #3a6343;
+  --lamp: #426a48;
+  --lamp-edge: #2f583b;
+  --on-felt: #f7ecd7;
+  --on-felt-muted: #dde2c4;
+  --paper: #f7ecd7;
+  --paper-sunken: #eee2c9;
+  --rule: #ddccad;
+  --ink: #30241a;
+  --ink-muted: #6c5644;
+  --link: #7a5418;
+  --brass: #daad4c;
+  --brass-edge: #9f7028;
+  --focus: #f6dd90;
+  --card-shadow: 0 2px 0 rgba(40, 30, 15, 0.18), 0 12px 22px -10px rgba(12, 26, 16, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --felt: #15261b;
+    --lamp: #1c2e20;
+    --lamp-edge: #0d1e14;
+    --on-felt: #eee4cf;
+    --on-felt-muted: #a9b79c;
+    --paper: #3d3429;
+    --paper-sunken: #30291f;
+    --rule: #554b40;
+    --ink: #f3e7ce;
+    --ink-muted: #c5b59b;
+    --link: #dfc986;
+    --brass: #cda44e;
+    --brass-edge: #92682a;
+    --focus: #dfc986;
+    --card-shadow: inset 0 1px 0 rgba(255, 236, 200, 0.07), 0 2px 0 rgba(0, 0, 0, 0.35),
+      0 14px 24px -10px rgba(0, 0, 0, 0.75);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--felt);
+  background-image: radial-gradient(120% 80% at 50% 0%, var(--lamp) 0%, var(--felt) 55%, var(--lamp-edge) 100%);
+  background-attachment: fixed;
+  color: var(--on-felt);
+  font-family: "Commissioner", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--link);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 16px 56px;
+}
+
+header.hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+header.hero img {
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.55);
+  flex: none;
+}
+
+h1,
+h2 {
+  font-family: "Gloock", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+header.hero p {
+  margin: 6px 0 0;
+  color: var(--on-felt-muted);
+  font-weight: 600;
+}
+
+.card {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 24px;
+  box-shadow: var(--card-shadow);
+  padding: 22px 22px 18px;
+  margin: 0 0 18px;
+}
+
+.card h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.card p + h2 {
+  margin-top: 24px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin: 18px 0 4px;
+}
+
+.card p,
+.card ul {
+  margin: 0 0 10px;
+}
+
+.card ul {
+  padding-left: 22px;
+}
+
+.card .muted,
+.muted {
+  color: var(--ink-muted);
+}
+
+.short {
+  background: var(--paper-sunken);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 4px 0 14px;
+  font-weight: 600;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 14px 22px;
+  border-radius: 18px;
+  background: var(--brass);
+  color: #30241a;
+  text-decoration: none;
+  box-shadow: inset 0 2px 0 rgba(255, 246, 214, 0.7), 0 5px 0 var(--brass-edge);
+}
+
+footer {
+  color: var(--on-felt-muted);
+  font-size: 14px;
+  text-align: center;
+  margin-top: 28px;
+}
+
+footer a {
+  color: var(--on-felt);
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  header.hero img {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+  }
+}
